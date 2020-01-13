@@ -1,0 +1,2 @@
+class Feminine < ApplicationRecord
+end

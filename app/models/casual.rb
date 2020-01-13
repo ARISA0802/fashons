@@ -1,0 +1,2 @@
+class Casual < ApplicationRecord
+end
