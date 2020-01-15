@@ -35,6 +35,9 @@ $(function(){
         // 天気
         $('#weather').text(data.weather[0].main);
         // 天気アイコン
+   		
+		$icon = str_replace('n', 'd', $weather['weather'][0]['icon']);
+
         $('img').attr("src","http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
         $('img').attr("alt",data.weather[0].main);
     }).fail(function (data) {
@@ -43,3 +46,6 @@ $(function(){
     });
   });
 });
+
+
+
