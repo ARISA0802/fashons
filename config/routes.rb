@@ -27,8 +27,8 @@ end
 
 
 namespace :admin do
-	resource :managers,only: [:index, :show, :edit, :update, :destroy]
-	resource :manager_products,only: [:index, :show, :new, :create, :edit, :update, :destroy]
+	resources :managers,only: [:index, :show, :edit, :update, :destroy]
+	resources :manager_products
 	resource :office,only: [:create]
 	resource :mode,only: [:create]
 	resource :casual,only: [:create]

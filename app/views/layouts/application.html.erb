@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+<div id="navArea">
+
+  <nav>
+    <div class="inner">
+      <ul>
+        <li>マイページ</li>
+        <li><%=link_to"掲示板",users_topics_path %></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="toggle_btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div id="mask"></div>
+
+</div>
+
+
     <title>Fashions</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

@@ -1,6 +1,6 @@
 <h1>コーディネート新規登録</h1>
 	<h3>洋服のジャンルを選択</h3>
-	<%=form_with(model:@code, url:new_admin_manager_products_path, local:true) do |f| %>
+
 	<input type="radio" name="janre" value="選択肢1">オフィスコーディネート
 	<input type="radio" name="janre" value="選択肢2">カジュアルコーディネート
 	<input type="radio" name="janre" value="選択肢3">モードコーディネート
@@ -8,6 +8,8 @@
 
 
 	<h4>コーディネート画像</h4>
-  			<%= f.attachment_field :image %>
-  			<%= f.submit '新規追加'%>
-<% end %>
+	<%= form_for @code, url:admin_managers_path do |f| %>
+  	<%= f.attachment_field :code_image %>
+	<% end %>
+
+  		

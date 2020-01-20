@@ -9,7 +9,7 @@ class CreateCodes < ActiveRecord::Migration[5.2]
     	t.string :femininecode_image_id
     	t.string :casualcode_image_id
     	t.string :modecode_image_id
-
+      t.string :code_image_id
       t.timestamps
     end
   end

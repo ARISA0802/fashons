@@ -1,6 +1,4 @@
-gggg
-gggg
-<%=link_to"ログアウト",destroy_user_session_path, method: :delete %>
+
 
 
 <html lang="ja">
@@ -13,10 +11,12 @@ gggg
 </head>
 <body>
     <div class="container">
-        <h1>各地のお天気は？</h1>
-        <div>
 
-          <h2>都市の選択</h2>
+        <div>
+<br>
+<br>
+<br>
+          <h2>都市を選ぶ</h2>
             <input type="radio" id="cityRadio" name="cityRadio" value="1850147">Tokyo
             <input type="radio" id="cityRadio" name="cityRadio" value="1853909">Osaka
             <input type="radio" id="cityRadio" name="cityRadio" value="1894616">Okinawa
@@ -35,49 +35,52 @@ gggg
         <div>湿度　<span id = "humidity" class="bold"></span>　%</div></div>
     
     <script>
-    $(document).ready(function() {
-        $("#submit").click(function (e) {
-            //JSONデータ取得 日本語で天気名を表示したいのでlang=ja　として日本語表記データを取得
-            $.post("http://api.openweathermap.org/data/2.5/weather?id=" + $("input[id='cityRadio']:checked").val() + "&appid=cc05750ba50400f27ebabbcd6f4c4976&lang=ja&units=metric",  
-                function(json){
-                    $("#weather").html(json.weather[0].description);
-                    $("#humidity").html(json.main.humidity);
-                    //lang=jaにすることで華氏から摂氏に変換することなく摂氏表示となる。小数点だけ丸める処理をする
-                    $("#temp").html(Math.round(json.main.temp));
-                    //天気に応じた天気アイコンを表示させる
-                    switch (json.weather[0].main){
-                    case 'Clouds':
-                    $("#weatherMark").html("<img src='http://openweathermap.org/img/w/04d.png' >");
-                    break;
-                    case 'Snow':
-                    $("#weatherMark").html("<img src='http://openweathermap.org/img/w/13d.png' >");
-                    break;
-                    case 'Rain':
-                    $("#weatherMark").html("<img src='http://openweathermap.org/img/w/09d.png' >");
-                    break;
-                    case 'Clear':
-                    $("#weatherMark").html("<img src='http://openweathermap.org/img/w/01d.png' >");
-                    break;
-                    case 'Fog':
-                    $("#weatherMark").html("<img src='http://openweathermap.org/img/w/50d.png' >");
-                    break;
-                    case 'Mist':
-                    $("#weatherMark").html("<img src='http://openweathermap.org/img/w/50n.png' >");
-                    break;case 'Haze':
-                    $("#weatherMark").html("<img src='http://openweathermap.org/img/w/50d.png' >");
-                    break;
-                    default:
-                    $("#weatherMark").html("<img src='http://openweathermap.org/img/w/01n.png' >");
-                }
-             }
-        );
-    });
-});
+
+  $(function() {
+  var API_KEY = 'c965525d0b43d446a807664d5ac8d853'
+  var city = 'Tokyo';
+  var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + API_KEY;
+  $.ajax({
+    url: url,
+    dataType: "json",
+    type: 'GET',
+  })
+  .done(function(data) {
+    var insertHTML = "";
+    var cityName = '<h2>' + data.city.name + '</h2>';
+    $('#city-name').html(cityName);
+    for (var i = 0; i <= 8; i = i + 2) {
+      insertHTML += buildHTML(data, i);
+    }
+    $('#weather').html(insertHTML);
+  })
+  .fail(function(data) {
+    console.log("失敗しました");
+  });
+});function buildHTML(data, i) {
+  var Week = new Array("（日）","（月）","（火）","（水）","（木）","（金）","（土）");
+  var date = new Date (data.list[i].dt_txt);
+  date.setHours(date.getHours() + 9);
+  var month = date.getMonth()+1;
+  var day = month + "月" + date.getDate() + "日" + Week[date.getDay()] + date.getHours() + "：00";
+  var icon = data.list[i].weather[0].icon;
+  var html =
+  '<div class="weather-report">' +
+    '<img src="http://openweathermap.org/img/w/' + icon + '.png">' +
+    '<div class="weather-date">' + day + '</div>' +
+    '<div class="weather-main">'+ data.list[i].weather[0].main + '</div>' +
+    '<div class="weather-temp">' + Math.round(data.list[i].main.temp) + '℃</div>' +
+  '</div>';
+  return html
+}
 
 
 </script>
 
-<%= attachment_image_tag code, :image, :fill, 110,110, fallback: "",size: "100*100" %>
+<% @codes.each do |code| %>
+<%= attachment_image_tag code,:code_image, :fill,110,110,fallback: "",size: "100*100" %>
+<% end %>
+
 
 
 
