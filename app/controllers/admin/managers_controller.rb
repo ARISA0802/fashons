@@ -9,4 +9,6 @@ class Admin::ManagersController < ApplicationController
 	end
 	def destroy
 	end
+	def create
+	end
 end

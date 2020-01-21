@@ -1,3 +1,3 @@
 class Code < ApplicationRecord
-	attachment :image
+	attachment :code_image
 end

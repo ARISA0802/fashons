@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+
+  	post 'admin/managers' => "admin/managers#create"
 	root'products#index'
 	get "top" => "tops#top"
   devise_for :users, :controllers => {

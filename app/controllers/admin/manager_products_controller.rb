@@ -1,10 +1,6 @@
 class Admin::ManagerProductsController < ApplicationController
 	skip_before_action :method_name, raise: false
 	def new
-		@office = Office.new
-		@mode = Mode.new
-		@casual = Casual.new
-		@feminine = Feminine.new
 		@code = Code.new
 	end
 	def index 
@@ -16,13 +12,9 @@ class Admin::ManagerProductsController < ApplicationController
 	end
 	def create
 		@code = Code.new(code_params)
-		if @code.save
-			redirect_to new_admin_manager_product_path
+		if@code.save
+			redirect_to admin_manager_products_path
 		else
-			@office = Office.new
-			@mode = Mode.new
-			@casual = Casual.new
-			@feminine = Feminine.new
 			render :new
 		end
 	end
@@ -46,9 +38,9 @@ class Admin::ManagerProductsController < ApplicationController
 	private
 
 	def code_params
-		params.require(:code).permit(:coordinate_method,:casual_id,:mode_id,:feminine_id,:code_image)
+		params.require(:code).permit(:coordinate_method,:casual_id,:mode_id,:feminine_id,:code_image ,:code_id )
 	end
 	def update_code_params
-		params.require(:code).permit(:code_image,:coordinate_method,:casual_id,:mode_id,:feminine_id)
+		params.require(:code).permit(:code_image,:coordinate_method,:casual_id,:mode_id,:feminine_id,[:code_id,:id,:_destroy] )
 	end
 end

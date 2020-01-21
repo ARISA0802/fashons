@@ -7,8 +7,17 @@
   <nav>
     <div class="inner">
       <ul>
+        <% if user_signed_in? %>
+      <ul>
         <li>マイページ</li>
         <li><%=link_to"掲示板",users_topics_path %></li>
+        <li><%=link_to"ログアウト",destroy_user_session_path,method: :delete %>
+      </ul>
+      <% elsif admin_signed_in? %>
+      <ul>
+        <li><%=link_to "ログアウト",destroy_admin_session_path,method: :delete %>
+          <% else %>
+          <% end%>
       </ul>
     </div>
   </nav>

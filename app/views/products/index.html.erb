@@ -1,39 +1,22 @@
-
-
-
-<html lang="ja">
-<head>
-<title>あなたの地域のお天気</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> 
-<script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>
-<link rel="stylesheet" href="weather.css">
-</head>
-<body>
-    <div class="container">
+<div class="container">
+  <head>
+    <title>あなたの地域のお天気</title>
+    
+  </head>
+  <body>
 
         <div>
-<br>
-<br>
-<br>
-          <h2>都市を選ぶ</h2>
-            <input type="radio" id="cityRadio" name="cityRadio" value="1850147">Tokyo
-            <input type="radio" id="cityRadio" name="cityRadio" value="1853909">Osaka
-            <input type="radio" id="cityRadio" name="cityRadio" value="1894616">Okinawa
-            <input type="radio" id="cityRadio" name="cityRadio" value="1835841">Korea
-            <input type="radio" id="cityRadio" name="cityRadio" value="1857910">Kyoto
-            <input type="radio" id="cityRadio" name="cityRadio" value="2643743">London
-            <button id="submit"><i class="fas fa-paper-plane"></i>  Click</button>
-        </div> 
+        <br>
+        <br>
+        <br>
         <div class="weatherMain"> 
             <h2>現在の天気は</h2>
             <div><span id = "weather" class="bold"></span></div>
             <div><span id = "weatherMark" class="bold"></span></div>
             <p id="icon"></p>
         </div>
-        <div>気温　<span id = "temp"  class="bold"></span>　℃</div>
-        <div>湿度　<span id = "humidity" class="bold"></span>　%</div></div>
-    
+        
+  
     <script>
 
   $(function() {
@@ -54,6 +37,7 @@
     }
     $('#weather').html(insertHTML);
   })
+
   .fail(function(data) {
     console.log("失敗しました");
   });
@@ -71,6 +55,7 @@
     '<div class="weather-main">'+ data.list[i].weather[0].main + '</div>' +
     '<div class="weather-temp">' + Math.round(data.list[i].main.temp) + '℃</div>' +
   '</div>';
+
   return html
 }
 
@@ -85,3 +70,4 @@
 
 
 </body>
+</div>

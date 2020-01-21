@@ -1,3 +1,24 @@
+<div class="container">
 <%=link_to "ユーザー一覧",admin_managers_path %>
 <%=link_to "コーディネート登録、編集",new_admin_manager_product_path %>
-<%=link_to "ログアウト",destroy_admin_session_path,method: :delete %>
+<table>
+	<thead>
+		<tr>
+			<th>画像</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @codes.each do |code| %>
+		<tr>
+			<td>
+				<%= attachment_image_tag code, :code_image, :size =>'300x400' %>
+			</td>
+			<td>
+				<%=link_to "削除します",admin_manager_product_path(code.id),method: :delete , data:{confirm:  "本当に？"} %>
+			</td>
+		</tr>
+
+		<% end %>
+	</tbody>
+</table>
+</div>
