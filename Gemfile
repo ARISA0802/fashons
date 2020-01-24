@@ -70,3 +70,4 @@ gem "kaminari",'~> 1.1.1'
 gem 'bootstrap-sass','~> 3.4.1'
 gem 'cocoon'
 gem 'rubocop', require: false
+gem 'bxslider-rails'

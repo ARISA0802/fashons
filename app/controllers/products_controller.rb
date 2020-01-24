@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
 	def index
 		now_month = Time.now.month
-		@code = Code.new
-		@codes = Code.all
+		@rain = Rain.new
+		@rains = Rain.all
 	
 	end
 	def show
@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
 
 	private
 	def code_params
-		params.require(:code).permit(:image)
+		params.require(:rain).permit(:rain_image,:coordinate_method,:name,:introduction)
 	end
 
 end

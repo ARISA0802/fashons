@@ -1,18 +1,19 @@
 class Admin::ManagerProductsController < ApplicationController
 	skip_before_action :method_name, raise: false
 	def new
-		@code = Code.new
+		@rain = Rain.new
 	end
 	def index 
-		@codes = Code.all
+		@rains = Rain.all
 
 	end
 
 	def show
 	end
 	def create
-		@code = Code.new(code_params)
-		if@code.save
+		@rain = Rain.new(rain_params)
+		if @rain.save
+			flash[:notice] = "保存しました！"
 			redirect_to admin_manager_products_path
 		else
 			render :new
@@ -20,27 +21,27 @@ class Admin::ManagerProductsController < ApplicationController
 	end
 
 	def edit
-		@code = Code.find(params[:id])
+		@rain = Rain.find(params[:id])
 	end
 	def update
-		@code = Code.find(params[:id])
-		if @code.update(update_product_params)
+		@rain = Rain.find(params[:id])
+		if @rain.update(update_product_params)
 			redirect_to admin_manager_products_path
-		else
-			render :edit
+			else
+				render :edit
 		end
 	end
 	def destroy
-		@code = Code.find(params[:id])
-		@code.destroy
+		@rain = Rain.find(params[:id])
+		@rain.destroy
 		redirect_to admin_manager_products_path
 	end
 	private
 
-	def code_params
-		params.require(:code).permit(:coordinate_method,:casual_id,:mode_id,:feminine_id,:code_image ,:code_id )
+	def rain_params
+		params.require(:rain).permit(:rain_image,:coordinate_method,:name,:introduction )
 	end
-	def update_code_params
-		params.require(:code).permit(:code_image,:coordinate_method,:casual_id,:mode_id,:feminine_id,[:code_id,:id,:_destroy] )
+	def update_rain_params
+		params.require(:rain).permit(:rain_image,:coordinate_method,:cloudy_image,:introduction,:name,:_destroy )
 	end
 end

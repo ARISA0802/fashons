@@ -67,6 +67,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
     builder (3.2.4)
+    bxslider-rails (4.2.5.1)
     byebug (11.0.1)
     capybara (3.30.0)
       addressable
@@ -293,6 +294,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap-sass (~> 3.4.1)
+  bxslider-rails
   byebug
   capybara (>= 2.15)
   chromedriver-helper

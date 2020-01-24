@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:name,:email,[:_destroy])
+		params.require(:user).permit(:address,:name,:email,[:address,:user_id,:_destroy])
 	end
 	def correct_user
 		user=User.find(params[:id])

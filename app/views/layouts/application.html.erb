@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-
-<div id="navArea">
-
-  <nav>
-    <div class="inner">
-      <ul>
-        <% if user_signed_in? %>
-      <ul>
-        <li>マイページ</li>
-        <li><%=link_to"掲示板",users_topics_path %></li>
-        <li><%=link_to"ログアウト",destroy_user_session_path,method: :delete %>
-      </ul>
-      <% elsif admin_signed_in? %>
-      <ul>
-        <li><%=link_to "ログアウト",destroy_admin_session_path,method: :delete %>
-          <% else %>
+  <head> 
+    <div id="navArea">
+      <nav>
+        <div class="inner">
+          <ul>
+            <% if user_signed_in? %>
+            <ul>
+              <li>
+                <%=link_to " t o p p a g e ",products_path,class: "glyphicon glyphicon-flag" %>
+              </li>
+              <li>
+                <%=link_to " m y p a g e ",user_path(current_user) ,class: "glyphicon glyphicon-user" %>
+                  
+              </li>
+              <li>
+                <%=link_to" fashion board ",users_topics_path ,class: "glyphicon glyphicon-heart-empty" %>
+              </li>
+              <li>
+                <%=link_to" l g o u t ",destroy_user_session_path,method: :delete,class: "glyphicon glyphicon-new-window" %>
+              </li>
+            </ul>
+            <% elsif admin_signed_in? %>
+            <ul>
+              <li><%=link_to " l o g o u t ",destroy_admin_session_path,method: :delete,class: "glyphicon glyphicon-new-window" %>
+              </li>
+            <% else %>
           <% end%>
-      </ul>
+        </ul>
     </div>
   </nav>
 
@@ -27,21 +36,17 @@
     <span></span>
     <span></span>
   </div>
+  <div id="mask">
+  </div>
 
-  <div id="mask"></div>
-
-</div>
-
-
-    <title>Fashions</title>
+  <title>Fashions</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-    <%= yield %>
-  </body>
+    <body>
+      <%= yield %>
+    </body>
+  </head>
 </html>

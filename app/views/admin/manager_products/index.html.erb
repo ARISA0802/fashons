@@ -7,18 +7,19 @@
 			<th>画像</th>
 		</tr>
 	</thead>
-	<tbody>
-		<% @codes.each do |code| %>
+		<% @rains.each do |rain| %>
 		<tr>
 			<td>
-				<%= attachment_image_tag code, :code_image, :size =>'300x400' %>
+				<%= rain.name %>
+				<%= rain.introduction %>
+				<%= attachment_image_tag rain, :rain_image, :size =>'300x400' %>
 			</td>
-			<td>
-				<%=link_to "削除します",admin_manager_product_path(code.id),method: :delete , data:{confirm:  "本当に？"} %>
+			<td><%=link_to "削除します",admin_manager_product_path(rain.id),method: :delete , data:{confirm:  "本当に？"} %>
 			</td>
 		</tr>
+			<% end %>
 
-		<% end %>
+
 	</tbody>
 </table>
 </div>

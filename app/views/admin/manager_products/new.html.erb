@@ -1,17 +1,27 @@
-
-
-<h1>コーディネート新規登録</h1>
-	<h3>洋服のジャンルを選択</h3>
-
-	<input type="radio" name="janre" value="選択肢1">オフィスコーディネート
-	<input type="radio" name="janre" value="選択肢2">カジュアルコーディネート
-	<input type="radio" name="janre" value="選択肢3">モードコーディネート
-	<input type="radio" name="janre" value="選択肢4">フェミニンコーディネート
-
+ <br>
+ <br>
+ <br>
 
 	<h4>コーディネート画像登録する</h4>
-	<%= form_for @code, url:admin_manager_products_path do |f| %>
-	<%= f.attachment_field :code_image %>
-	<%= f.submit '新規追加' %>
+	<%= form_for @rain, url:admin_manager_products_path do |f| %>
+		画像登録お願いします
+		<p>
+			<%= f.attachment_field :rain_image %>
+		</p>
+		<p>
+		</p>
+		<p>
+		画像の名前
+		</p>
+		<p>
+		<%= f.text_field :name %>
+		</p>
+		<p>
+		画像のコメント
+		</p>
+		<p>
+		<%= f.text_field :introduction %>
+		</p>
+		<%= f.submit '新規追加' %>
 	<% end %>
-	</div>
+
