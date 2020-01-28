@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="row">
+
+		<h1>Fashion Board</h1>
+
+			<%=link_to"new",new_users_topic_path %>
+			<div class="box2">
+    						<p><% @topixes.each do |f| %>
+    							<br><%= f.title %>
+   							 <br><%= f.body %>
+							<br><%= link_to "このスレッドを見る", users_topic_path(current_user.id)  %>
+							<br><%= link_to "Destroy",users_topic_path(current_user.id) ,method: :delete,"data-confirm" => "Are you sure？" %></p>
+								<% end %>
+			</div>			
+	</div>
+</div>

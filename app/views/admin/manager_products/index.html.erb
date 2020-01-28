@@ -1,25 +1,39 @@
-<div class="container">
-<%=link_to "ユーザー一覧",admin_managers_path %>
-<%=link_to "コーディネート登録、編集",new_admin_manager_product_path %>
-<table>
-	<thead>
-		<tr>
-			<th>画像</th>
-		</tr>
-	</thead>
-		<% @rains.each do |rain| %>
-		<tr>
-			<td>
-				<%= rain.name %>
-				<%= rain.introduction %>
-				<%= attachment_image_tag rain, :rain_image, :size =>'300x400' %>
-			</td>
-			<td><%=link_to "削除します",admin_manager_product_path(rain.id),method: :delete , data:{confirm:  "本当に？"} %>
-			</td>
-		</tr>
-			<% end %>
+<div class="container"> <!-- ここを追加 -->
+    <div class="row">
+      	<div class="col-lg-10">
+      		<table class="table table-striped">
+      			<h2>登録画像</h2>
+					<thead> 
+						<tr>
+							<th>image</th>
+							<th>image_name</th>
+							<th>image.text</th>
+						</tr>
+					</thead>
+					<% @rains.each do |rain| %>
+						<tr>
+							<td><%= attachment_image_tag rain, :rain_image, :size =>'300x400' %>
+								<%= attachment_image_tag rain, :sunny_image, :size =>'300x400' %>
+							</td>
+							<td>
+								<%= rain.name %>
+								<%= rain.sunnyname %>
 
+							</td>
+							<td>
+								<%= rain.introduction %>
+								<%= rain.sunnyintroduction %>
 
-	</tbody>
-</table>
+							</td>
+							<td>
+								<%=link_to "削除",admin_manager_product_path(rain.id),method: :delete , data:{confirm:  "本当に？"} %>
+							</td>
+							<td>
+								<%= link_to "編集",edit_admin_manager_product_path(rain.id) %>
+							</td>
+						</tr>
+					<% end %>
+			</table>
+		</div>
+	</div>
 </div>

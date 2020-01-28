@@ -1,20 +1,23 @@
-
 <div class="container">
   <div class="row">
-  <br>
-  <div class="col-md-4">
+    <div class="col-md-4">
     <h1>
       <%= current_user.address %>の本日のお天気
     </h1>
-  <br>
-  <br>
-  <div class="weatherMain"> 
-      <h2>現在の天気は</h2>
-        <div><span id = "weather" class="bold"></span></div>
-          <div><span id = "weatherMark" class="bold"></span></div>
-            <p id="icon"></p>
-        </div>
-        
+    <br>
+    <br>
+      <div class="weatherMain"> 
+        <h2>現在の天気は</h2>
+          <div>
+            <span id = "weather" class="bold">
+            </span>
+          </div>
+            <div>
+              <span id = "weatherMark" class="bold">
+              </span>
+            </div>
+              <p id="icon"></p>
+      </div>  
     <script>
       $(function() {
         var API_KEY = 'c965525d0b43d446a807664d5ac8d853'
@@ -54,20 +57,19 @@
       '</div>';
 
       return html
-    }
-</script>
-</div>
-<div class="col-md-8" %>
-  <table class="table table-striped">
-<div id="slider">
-        <div id="skippr-slider">
-      <% @rains.each do |rain| %>
-          <%= attachment_image_tag rain, :rain_image, :size =>'300x400' %>
-      <% end %>
-             </div>
-</div>
+    } 
+    </script>
     </div>
+  <div class="col-md-8" %>
+    <table class="table table-striped">
+          <ul class="bxslider">
+          <% @rains.each do |rain| %>
+            <li>
+              <%= attachment_image_tag rain, :rain_image, :size =>'300x400' %>
+              <%= link_to rain.name ,product_path(rain.id) %>
+            </li>
+          <% end %>
+        </ul>
+    </table>
+  </div>
 </div>
-</table>
-
-</div></div>

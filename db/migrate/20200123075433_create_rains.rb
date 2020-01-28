@@ -6,6 +6,9 @@ class CreateRains < ActiveRecord::Migration[5.2]
     	t.string :cloudy_image_id
     	t.integer :user_id
     	t.text :introduction
+        t.string :sunnyname
+        t.string :sunnyintroduction
+        t.string :sunny_image_id
     	t.timestamps
     end
   end

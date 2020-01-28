@@ -5,6 +5,7 @@ class Admin::ManagerProductsController < ApplicationController
 	end
 	def index 
 		@rains = Rain.all
+		
 
 	end
 
@@ -25,7 +26,7 @@ class Admin::ManagerProductsController < ApplicationController
 	end
 	def update
 		@rain = Rain.find(params[:id])
-		if @rain.update(update_product_params)
+		if @rain.update(update_rain_params)
 			redirect_to admin_manager_products_path
 			else
 				render :edit
@@ -39,9 +40,9 @@ class Admin::ManagerProductsController < ApplicationController
 	private
 
 	def rain_params
-		params.require(:rain).permit(:rain_image,:coordinate_method,:name,:introduction )
+		params.require(:rain).permit(:sunny_image,:sunnyname,:sunnyintroduction,:rain_image,:coordinate_method,:name,:introduction )
 	end
 	def update_rain_params
-		params.require(:rain).permit(:rain_image,:coordinate_method,:cloudy_image,:introduction,:name,:_destroy )
+		params.require(:rain).permit(:sunny_image,:sunnyname,:sunnyintroduction,:rain_image,:coordinate_method,:cloudy_image,:introduction,:name,:_destroy )
 	end
 end

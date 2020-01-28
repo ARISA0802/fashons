@@ -1,11 +1,13 @@
 class ProductsController < ApplicationController
 	def index
-		now_month = Time.now.month
 		@rain = Rain.new
 		@rains = Rain.all
+		@favorites = Favorite.new
 	
 	end
 	def show
+		@rain = Rain.find(params[:id])
+
 	end
 
 	private

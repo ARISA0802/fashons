@@ -1,27 +1,39 @@
- <br>
- <br>
- <br>
-
-	<h4>コーディネート画像登録する</h4>
-	<%= form_for @rain, url:admin_manager_products_path do |f| %>
-		画像登録お願いします
-		<p>
-			<%= f.attachment_field :rain_image %>
-		</p>
-		<p>
-		</p>
-		<p>
-		画像の名前
-		</p>
-		<p>
-		<%= f.text_field :name %>
-		</p>
-		<p>
-		画像のコメント
-		</p>
-		<p>
-		<%= f.text_field :introduction %>
-		</p>
-		<%= f.submit '新規追加' %>
-	<% end %>
-
+<div class="container"> <!-- ここを追加 -->
+      <div class="row">
+		<h4>コーディネート画像登録する</h4>
+			<%= form_for @rain, url:admin_manager_products_path do |f| %>
+				雨の日の画像登録
+					<p>
+						<%= f.attachment_field :rain_image %>
+					</p>
+					<p>
+						雨のコーデ名
+					</p>
+					<p>
+						<%= f.text_field :name %>
+					</p>
+					<p>
+						雨コーデ詳細
+					</p>
+					<p>
+						<%= f.text_field :introduction %>
+					</p>
+						晴れの日の画像登録
+		　			<p>
+						<%= f.attachment_field :sunny_image %>
+					</p>
+					<p>
+						晴れのコーデ名
+					</p>
+					<p>
+						<%=f.text_field :sunnyname %>
+					</p>
+					<p>
+						晴れコーデ詳細
+					<p>
+						<%=f.text_field :sunnyintroduction %>
+					</p>
+						<%= f.submit '新規追加' %>
+			<% end %>
+	</div>
+</div>
