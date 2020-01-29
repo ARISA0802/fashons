@@ -1,1 +1,38 @@
-詳細
+<div class="container">
+  <div class="row">
+  	<h1>コーディネート詳細</h1>
+  	  	<div class="col-md-6">
+		<%= attachment_image_tag @rain, :rain_image, :size =>'400x500' %>
+
+
+<% if @rain.favorited_by?(current_user) %>
+  <li>
+    <%= link_to product_favorites_path(@rain), method: :delete do %>
+      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+      <%= @rain.favorites.count %> いいね
+    <% end %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to product_favorites_path(@rain), method: :post do %>
+      <i class="fa fa-heart-o" aria-hidden="true"></i>
+      <%= @rain.favorites.count %> いいね
+    <% end %>
+  </li>
+<% end %>
+
+
+
+			</div>
+	<div class="col-md-6">
+		<h2 class="font"><%= @rain.name %></h2>
+		<h2 class="font"><%= @rain.sunnyname %></h2>
+			<div class="kakomi">
+				<%= @rain.introduction %>
+				<%= @rain.sunnyintroduction %>
+			</div>
+
+
+	</div>
+  </div>
+</div>

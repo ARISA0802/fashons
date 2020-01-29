@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   	post 'admin/managers' => "admin/managers#create"
-  	get 'admin/managers' =>"admin/managers#index"
-	root'products#index'
+	root 'products#index'
 	get "top" => "tops#top"
-	get 'users/topics'=> 'users/topics#index'
+	get 'user/topic'=> 'users/topics#index'
 	post "topics/comment" => "topics#comment"
   devise_for :users, :controllers => {
   	:sessions => "users/sessions",
@@ -18,15 +17,17 @@ Rails.application.routes.draw do
   	:registrarions =>"admins/registrations"
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-resources :users,only: [:show,:edit,:update,:index,:destroy]
-	resources :products,only: [:index,:show] do
-	resource :favorites, only: [:create, :destroy]
+resources :products,only: [:index,:show] do
+	resource :favorites, only: [:new,:create, :destroy]
+end
+resources :users,only: [:show,:edit,:update,:index,:destroy]do
+	resources :favorites,only: [:index]
 end
 namespace :users do
 	resources :topics,only: [:show,:edit,:update,:destroy,:create,:new]
 end
 resources :images, only: [:new, :create, :index, :show] do
-	resource :favorites, only: [:create, :destroy]
+	resource :favorites, only: [:index]
 	resource :post_comments, only: [:create, :destroy]
 end
 

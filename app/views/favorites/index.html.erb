@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="row">
+		<h2><%= current_user.name %>さんのお気に入り</h2>
+			<% @favorites.each do |favorite| %>
+					<td><%= attachment_image_tag favorite.rain, :rain_image, :size =>'300x400' %>
+					
+					<% end %>
+		<h3>お気に入りを削除する</h3>
+
+
+
+	</div>
+</div>

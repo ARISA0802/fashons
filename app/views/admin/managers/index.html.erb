@@ -29,10 +29,10 @@
 						<%= f.address %>
 					</td>
 					<td>
-						<%=link_to "編集",edit_admin_manager_path(user.id) %>
+						<%=link_to "編集",edit_admin_manager_path(@users) %>
 					</td>
 					<td>
-						<%=link_to "削除",admin_manager_path(user.id),method: :delete , data:{confirm:  "本当に？"} %>
+						<%=link_to "削除",admin_manager_path(@users),method: :delete , data:{confirm:  "本当に？"} %>
 					</td>
 				</tr>
 				<% end %>

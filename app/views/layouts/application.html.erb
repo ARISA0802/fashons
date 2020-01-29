@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head> 
+  <head>
+    <div class="header"></div>
     <div id="navArea">
       <nav>
         <div class="inner">
@@ -15,7 +16,7 @@
                   
               </li>
               <li>
-                <%=link_to" fashion board ",users_topics_path ,class: "glyphicon glyphicon-heart-empty" %>
+                <%=link_to" fashion board ",user_topic_path ,class: "glyphicon glyphicon-heart-empty" %>
               </li>
               <li>
                 <%=link_to" l g o u t ",destroy_user_session_path,method: :delete,class: "glyphicon glyphicon-new-window" %>
@@ -50,15 +51,15 @@
   </div>
   <div id="mask">
   </div>
-
-  <title>Fashions</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <body>
       <%= yield %>
     </body>
   </head>
+  <footer>
+    <h6>Made with</h6><div class="glyphicon glyphicon-heart"></div><h6> & </h6><div class="fas fa-coffee"></div><h6>in DMM WEB CAMP ,Japan.</h6>
+  </footer>
 </html>

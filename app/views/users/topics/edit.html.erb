@@ -4,7 +4,7 @@
 			<h1>投稿編集ページ</h1>
 		</div>
 			<div class="col-md-8">
-				<%= form_for(@topix, url:"/users/topic/#{@topics.id}") do |f| %>
+				<%= form_for(@topix,url:"/users/topic/#{@topix.id}") do |f| %>
     			<h4>Title</h4>
     				<%= f.text_field :title %>
     			<h4>Body</h4>

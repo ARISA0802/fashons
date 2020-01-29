@@ -1,6 +1,4 @@
 class Users::TopicsController < ApplicationController
-	before_action :authenticate_user!
-	before_action :correct_user,only:[:edit, :update]
 
 	def new
 		@topix = Topix.new
@@ -9,14 +7,14 @@ class Users::TopicsController < ApplicationController
 		@topixes = Topix.all
 		@topix = Topix.new(topix_params)
 		if @topix.save
-			redirect_to users_topics_path
+			redirect_to user_topic_path
 		else
 			render 'topics/index'
 		end
 	end
 	def index
-		@topixes = Topix.all
-		@topix = Topix.new
+		@topixes = Topix.all.page(params[:page]).reverse_order
+
 	end
 	def show
 		@topix = Topix.find(params[:id])
@@ -26,34 +24,24 @@ class Users::TopicsController < ApplicationController
 	end
 	def update
 		@topix = Topix.find(params[:id])
-			@topix.update(topix_params)
-			redirect_to users_topics_path
+		if @topix.update(topix_params)
+			redirect_to users_topics_path(@topix.id)
+		else
+			render "topix/edit"
+		end
 	end
 	def destroy
-		topix = Topix.find(params[:id])
-			topix.destroy
+		@topix = Topix.find(params[:id])
+			@topix.destroy
 			redirect_to users_topics_path
-	end
-	def comment
-    	@comment = Comment.new(comment: params[:comment], topix_id: params[:topix_id], user_id: params[:user_id])
-    	@comment.save
-    	redirect_to :action => "show", :id => @comment.topix_id
-  end
-	private
-	def correct_user
-		user=User.find(params[:user_id])
-		if current_user!=user
-			redirect_to user_topic_path(user_id: current_user.id)
-		end
 	end
 	
+	private
+	
 	def topix_params
-		params.require(:topix).permit(:title,:body)
+		params.require(:topix).permit(:title, :body, :post_image)
 	end
-	def correct_user
-		@topix = Topix.find(params[:id])
-		if @topix.user_id != current_user.id
-			redirect_to users_topics_path
-		end
-	end	
+	def update_params
+		params.require(:topix).permit(:title, :body, :post_image,:_destroy)
+	end
 end

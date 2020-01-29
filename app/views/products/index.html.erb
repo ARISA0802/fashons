@@ -1,24 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-    <h1>
+    <div class="col-md-3">
+    <p>
+      <%= current_user.name %>さんの住む
+    </p>
       <%= current_user.address %>の本日のお天気
-    </h1>
-    <br>
-    <br>
-      <div class="weatherMain"> 
-        <h2>現在の天気は</h2>
-          <div>
-            <span id = "weather" class="bold">
-            </span>
-          </div>
+        <div class="icon" >
+          <div class="weatherMain"> 
+            <div>
+              <span id = "weather" class="bold">
+              </span>
+            </div>
             <div>
               <span id = "weatherMark" class="bold">
               </span>
             </div>
-              <p id="icon"></p>
-      </div>  
-    <script>
+            <p id="icon"></p>
+            </div>
+        </div>
+      <script>
       $(function() {
         var API_KEY = 'c965525d0b43d446a807664d5ac8d853'
         var city = 'Tokyo';
@@ -58,18 +58,35 @@
 
       return html
     } 
-    </script>
+      </script>
     </div>
-  <div class="col-md-8" %>
-    <table class="table table-striped">
+      <div class="col-md-8">
+        <h3>オススメの雨の日コーデ</h3>
           <ul class="bxslider">
+          <% if @rains.present? %>
           <% @rains.each do |rain| %>
             <li>
-              <%= attachment_image_tag rain, :rain_image, :size =>'300x400' %>
+              <%= attachment_image_tag rain, :rain_image, :size =>'200x300' %>
               <%= link_to rain.name ,product_path(rain.id) %>
             </li>
+              <% end %>
+              <% end %>
+          </ul>
+      </div>
+        <div class="col-md-8">
+          <h3>オススメの晴れのひコーデ</h3>
+            <ul class="bxslider">
+            <% if @rains.present? %>
+            <% @rains.each do |rain| %>
+            <li>
+              <%= link_to rain.sunnyname ,product_path(rain.id) %>
+              <%= attachment_image_tag rain, :sunny_image, :size =>'200x300' %>
+            </li>
           <% end %>
-        </ul>
-    </table>
-  </div>
+          <% end %>
+          </ul>
+        </div>
+    </div>
+    <br>
+    <br>
 </div>

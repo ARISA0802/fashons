@@ -5,8 +5,6 @@ class Admin::ManagerProductsController < ApplicationController
 	end
 	def index 
 		@rains = Rain.all
-		
-
 	end
 
 	def show

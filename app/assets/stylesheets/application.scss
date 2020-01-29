@@ -174,6 +174,8 @@ body {
 }
 .box{
   height: 500px;
+  width: 60px;
+  margin: 0 auto;
  }
  .contents {
   min-height: 100vh;
@@ -274,4 +276,39 @@ footer .sns .fb {
 }
 footer .sns .tw {
   background-color: #55acee;
+}
+.icon{
+ margin: 2em auto;
+ padding: 1em;
+ width: 70%;
+ color: #555555; /* 文字色 */
+ background-color: #ffe4e1; /* 背景色 */
+ box-shadow: 0 0 10px 10px #ffcccc; /* 影 */
+}
+.header{
+  width: 100%;
+  height: 120px;
+  background-image: url(img4/header.png);
+}
+.kakomi{
+  background-color: #fff;
+  background-image:
+  linear-gradient(-45deg, rgba(255,224,224,.5) 25%, transparent 25%, transparent 50%, rgba(255,224,224,.5) 50%, rgba(255,224,224,.5) 75%, transparent 75%, transparent 100%),
+  linear-gradient(45deg, rgba(255,224,224,.5) 25%, transparent 25%, transparent 50%, rgba(255,224,224,.5) 50%, rgba(255,224,224,.5) 75%, transparent 75%, transparent 100%);
+  background-size: 70px 70px;
+  line-height: 2em;
+  border: 3px solid #FBE1E1;
+  padding: 2em 1em 1.98em 1em;
+  color: #ee8992;
+  margin: 2em 0;
+  font-weight: bold;
+}
+.font{
+  font-family: "fantasy";
+}
+.star,.star-o{
+  color: #FFD700;
+}
+.headerimage{
+  background-image: url(img4/image5.jpg);
 }
