@@ -71,3 +71,6 @@ gem 'bootstrap-sass','~> 3.4.1'
 gem 'cocoon'
 gem 'rubocop', require: false
 gem 'bxslider-rails'
+group :production do
+  gem 'mysql2'
+end
