@@ -1,16 +1,11 @@
-<p><strong>Title:</strong></p>
-<br>
-<br>
-<p><%= @topix.title %></p>
-<p><strong>Body:</strong>
-<%= @topix.body %> </p>
-<br>
-<br>
 
 
 
 
-<%= link_to "Edit", edit_users_topic_path(current_user.id) %> 
-<%= link_to "Destroy",users_topic_path(current_user.id) ,method: :delete,"data-confirm" => "Are you sure？" %>
-|<a class="back" href="/users/topics"> Back</a>
-</div>
+
+ 
+
+
+
+
+<%=link_to ".",user_topic_path,class: "glyphicon glyphicon-circle-arrow-left"  %>

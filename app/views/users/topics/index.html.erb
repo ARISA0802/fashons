@@ -1,19 +1,15 @@
 <div class="headerimage">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-8">
 			<h1>Fashion Board</h1>
 				<%=link_to "new",new_users_topic_path %>
     				<% @topixes.each do |f| %>
     					<div class="box2">
     					<br><%= attachment_image_tag f, :post_image, :size =>'100x200' %>
-    					<br><%= f.title %>
-   						<br><%= f.body %>
-						<br><%=link_to"詳細",users_topic_path(@topixes) %>
-						<br><%=link_to "削除",users_topic_path(@topixes),method: :delete , data:{confirm:  "本当に？"} %>
-						</div>
+    					<%= f.title %>
+   						<%= f.body %>
+					</div>
+
 					<% end %>
-					<%= paginate @topixes, class: "paginate" %>
 			</div>
 		</div>
 	</div>

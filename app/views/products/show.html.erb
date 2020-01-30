@@ -3,6 +3,7 @@
   	<h1>コーディネート詳細</h1>
   	  	<div class="col-md-6">
 		<%= attachment_image_tag @rain, :rain_image, :size =>'400x500' %>
+    <%= attachment_image_tag @rain, :sunny_image, :size =>'400x500' %>
 
 
 <% if @rain.favorited_by?(current_user) %>

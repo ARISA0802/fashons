@@ -1,13 +1,48 @@
 <div class="container">
 	<div class="row">
+		<div class="col-md-8">
 		<h2><%= current_user.name %>さんのお気に入り</h2>
 			<% @favorites.each do |favorite| %>
 					<td><%= attachment_image_tag favorite.rain, :rain_image, :size =>'300x400' %>
-					
+					<td><%= attachment_image_tag favorite.rain, :sunny_image, :size =>'300x400' %>
 					<% end %>
-		<h3>お気に入りを削除する</h3>
+				</div>
+
+				<div class="col-md-4">
+					<div class="icon" >
+						<h5>お気に入りコーデを参考に今日の天気を調べませんか？</h5>
+              <h6>登録住所 : <%= current_user.address %><div class= "glyphicon glyphicon-home" ></h6>
+
+      <h4><label>city:name：</label>
+        <input id="cityname" type="text" size="14" maxlength="14" placeholder="Tokyo">
+        <button id="btn">push</button><br>
+       <span>場所 :</span>
+       <span id="place"></span><br>
+       <br>
+       <span>最高気温 :</span>
+       <span id="temp_max"></span>
+       <span> ℃</span><br>
+       <br>
+       <span>最低気温 :</span>
+       <span id="temp_min"></span>
+       <span> ℃</span><br>
+       <br>
+       <span>湿度 :</span>
+       <span id="humidity"></span>
+       <span> %</span><br>
+       <br>
+       <span>風速 :</span>
+       <span id="speed"></span>
+       <span> m/s</span><br>
+       <br>
+       <span>天気 :</span>
+       <span id="weather"></span>
+        <script src="jquery.min.js"></script>
+        <script src="script.js"></script>
+    </div></h4>
 
 
 
+</div>
 	</div>
 </div>

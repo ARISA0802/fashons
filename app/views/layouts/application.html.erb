@@ -12,7 +12,7 @@
                 <%=link_to " t o p p a g e ",products_path,class: "glyphicon glyphicon-flag" %>
               </li>
               <li>
-                <%=link_to " m y p a g e ",user_path(current_user) ,class: "glyphicon glyphicon-user" %>
+                <%=link_to " m y p a g e ",user_favorites_path(current_user) ,class: "glyphicon glyphicon-user" %>
                   
               </li>
               <li>
@@ -60,6 +60,22 @@
     </body>
   </head>
   <footer>
-    <h6>Made with</h6><div class="glyphicon glyphicon-heart"></div><h6> & </h6><div class="fas fa-coffee"></div><h6>in DMM WEB CAMP ,Japan.</h6>
+  <div id="button">About</div>
+  <div id="container">
+  <div id="cont">
+    <div class="copyright">
+      <p>© 2020 - Organisation</p>
+    </div>
+    <div class="sns">
+      <h4>
+        あなたのクローゼット
+      </h4>
+      "天気予報とファッションをつなぐアプリ"
+      <h7>Made with<div class="glyphicon glyphicon-heart"></div> & <div class="glyphicon glyphicon-thumbs-up"> in DMM WEB CAMP ,Japan.</h6>
   </footer>
+
+    </div>
+  </div>
+  </div>
+</footer>
 </html>

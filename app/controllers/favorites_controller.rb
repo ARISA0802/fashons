@@ -11,13 +11,13 @@ class FavoritesController < ApplicationController
 			@rain = Rain.find(params[:product_id])
             @favorite = current_user.favorites.new(rain_id: @rain.id)
             @favorite.save
-            redirect_to user_favorites_path(current_user)
+            redirect_to product_path(@rain.id)
         end
     def destroy
     		@rain = Rain.find(params[:product_id])
             @favorite = current_user.favorites.find_by(rain_id: @rain.id)
             @favorite.destroy
-            redirect_to user_favorites_path(current_user)
+            redirect_to product_path(@rain.id)
     end
     private
 
