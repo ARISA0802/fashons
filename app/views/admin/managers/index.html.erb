@@ -1,0 +1,43 @@
+<div class="container">  <!-- ここを追加 -->
+	<div class="row">
+		<h1>
+			会員登録ユーザー一覧　
+		</h1>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>
+							ユーザー名
+						</th>
+						<th>
+							ユーザーのメールアドレス
+						</th>
+						<th>
+							ユーザーのアドレス
+						</th>
+					</tr>
+				</thead>
+				<% @users.each do |f| %>
+				<tr>
+					<td>
+						<%= f.name %>
+					</td>
+					<td>
+						<%= f.email %>
+					</td>
+					<td>
+						<%= f.address %>
+					</td>
+					<td>
+						 編集
+					</td>
+					<td>
+						削除
+					</td>
+				</tr>
+				<% end %>
+			</table>
+	</div>
+</div>
+				
+

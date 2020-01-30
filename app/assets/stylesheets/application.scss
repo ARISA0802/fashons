@@ -1,0 +1,319 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bxslider
+ *= require_tree .
+ *= require_tree ../../../app/assets/stylesheets/.
+ *= require_self
+ */
+@import "bootstrap-sprockets";  /*ここを追加*/
+@import "bootstrap";
+
+/*============
+nav
+=============*/
+nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  bottom: 0;
+  width: 300px;
+  background: #ffffff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: all .5s;
+  z-index: 3;
+  opacity: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.open nav {
+  left: 0;
+  opacity: 1;
+}
+nav .inner {
+  padding: 25px;
+}
+nav .inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav .inner ul li {
+  position: relative;
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+nav .inner ul li a {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  padding: 1em;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+nav .inner ul li a:hover {
+  background: #e4e4e4;
+}
+@media screen and (max-width: 767px) {
+  nav {
+    left: -220px;
+    width: 220px;
+  }
+}
+/*============
+.toggle_btn
+=============*/
+.toggle_btn {
+  display: block;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  width: 30px;
+  height: 30px;
+  transition: all .5s;
+  cursor: pointer;
+  z-index: 3;
+}
+.open .toggle_btn {
+  left: 330px;
+}
+.toggle_btn span {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #333;
+  border-radius: 4px;
+  transition: all .5s;
+}
+.toggle_btn span:nth-child(1) {
+  top: 4px;
+}
+.toggle_btn span:nth-child(2) {
+  top: 14px;
+}
+.toggle_btn span:nth-child(3) {
+  bottom: 4px;
+}
+.open .toggle_btn span {
+  background-color: #fff;
+}
+.open .toggle_btn {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.open .toggle_btn span:nth-child(1), .open .toggle_btn span:nth-child(3) {
+  width: 16px;
+}
+.open .toggle_btn span:nth-child(1) {
+  -webkit-transform: translate(-1px,4px) rotate(-45deg);
+  transform: translate(-1px,4px) rotate(-45deg);
+}
+.open .toggle_btn span:nth-child(3) {
+  -webkit-transform: translate(-1px,-4px) rotate(45deg);
+  transform: translate(-1px,-4px) rotate(45deg);
+}
+@media screen and (max-width: 767px) {
+  .open .toggle_btn {
+    left: 250px;
+  }
+}
+/*============
+#mask
+=============*/
+#mask {
+  display: none;
+  transition: all .5s;
+}
+.open #mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .8;
+  z-index: 2;
+  cursor: pointer;
+}
+/*============
+main
+=============*/
+main {
+  width: 100%;
+  padding: 50px 0;
+  transition: all .5s;
+}
+.open main {
+  margin-left: 300px;
+}
+main h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+/*============
+body
+=============*/
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  overflow: hidden;
+}
+.box{
+  height: 500px;
+  width: 60px;
+  margin: 0 auto;
+ }
+ .contents {
+  min-height: 100vh;
+  margin: auto;
+  padding: 1em 0 10em 0;
+  background: rgb(236, 240, 241);
+}
+footer #button {
+  position: relative;
+  width: 10em;
+  height: 2em;
+  margin: 0 auto;
+  padding: 0.2em;
+  cursor: pointer;
+  -webkit-transition: all 1s ease;
+          transition: all 1s ease;
+  text-align: center;
+  color: #00acc1;
+  border-radius: 3px 3px 0px 0px;
+  background: #006064;
+}
+footer #button:hover {
+  position: relative;
+  width: 10em;
+  height: 2em;
+  -webkit-transition: all 1s ease;
+          transition: all 1s ease;
+}
+footer {
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 1.5em;
+  margin: 0 auto;
+  -webkit-transition: all 1s ease;
+          transition: all 1s ease;
+}
+footer:hover {
+  height: 10em;
+  -webkit-transition: all 1s ease;
+          transition: all 1s ease;
+}
+footer #container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #006064;
+}
+footer #cont {
+  margin: 0 auto;
+  padding: 1em;
+  color: #00acc1;
+}
+footer .copyright {
+  float: left;
+  width: 50%;
+}
+footer .copyright p {
+  font-size: 0.7em;
+  line-height: 2em;
+  padding-left: 10%;
+  letter-spacing: 1px;
+  color: #fff0f5;
+}
+footer .sns {
+  float: right;
+  width: 50%;
+}
+footer .sns a {
+  font-weight: bold;
+  line-height: 2em;
+  width: 2em;
+  margin: auto 0.1em;
+  float: right;
+  -webkit-transition: all, 0.3s;
+          transition: all, 0.3s;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 4px;
+  background-color: #00acc1;
+}
+footer .sns a:hover {
+  -webkit-transition: all, 0.3s;
+          transition: all, 0.3s;
+  background-color: #222222;
+}
+footer .sns .insta {
+  background-color: #e4405f;
+}
+footer .sns .fb {
+  background-color: #3b5999;
+}
+footer .sns .tw {
+  background-color: #55acee;
+}
+.icon{
+ margin: 2em auto;
+ padding: 1em;
+ width: 70%;
+ color: #555555; /* 文字色 */
+ background-color: #ffe4e1; /* 背景色 */
+ box-shadow: 0 0 10px 10px #ffcccc; /* 影 */
+}
+
+.kakomi{
+  background-color: #fff;
+  background-image:
+  linear-gradient(-45deg, rgba(255,224,224,.5) 25%, transparent 25%, transparent 50%, rgba(255,224,224,.5) 50%, rgba(255,224,224,.5) 75%, transparent 75%, transparent 100%),
+  linear-gradient(45deg, rgba(255,224,224,.5) 25%, transparent 25%, transparent 50%, rgba(255,224,224,.5) 50%, rgba(255,224,224,.5) 75%, transparent 75%, transparent 100%);
+  background-size: 70px 70px;
+  line-height: 2em;
+  border: 3px solid #FBE1E1;
+  padding: 2em 1em 1.98em 1em;
+  color: #ee8992;
+  margin: 2em 0;
+  font-weight: bold;
+}
+.font{
+  font-family: "fantasy";
+}
+.star,.star-o{
+  color: #FFD700;
+}
+.headerimage{
+  background-image: url(img4/image5.jpg);
+}
+.board{
+  width: 100px;
+  height: 100px;
+}

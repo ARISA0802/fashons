@@ -1,0 +1,16 @@
+<div class="headerimage">
+	<div class="container">
+			<h1>Fashion Board</h1>
+				<%=link_to "new",new_users_topic_path %>
+    				<% @topixes.each do |f| %>
+    					<div class="box2">
+    					<br><%= attachment_image_tag f, :post_image, :size =>'100x200' %>
+    					<%= f.title %>
+   						<%= f.body %>
+					</div>
+
+					<% end %>
+			</div>
+		</div>
+	</div>
+</div>

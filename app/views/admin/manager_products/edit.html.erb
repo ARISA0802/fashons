@@ -1,0 +1,14 @@
+<div class="container"> <!-- ここを追加 -->
+    <div class="row">
+    	<h1>編集画面</h1>
+			<%= form_for(@rain,url:"/admin/manager_products/#{@rain.id}")do|f| %>
+				<h4>Title</h4>
+					<%= f.text_field :name %>
+				<h4>Opinion</h4>
+					<%= f.text_area :introduction %>
+				<p><%= f.submit'Update Book' %></p>
+			<% end %>
+	</div>
+</div>
+
+<!-- form_for部分 -->
