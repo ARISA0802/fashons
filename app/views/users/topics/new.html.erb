@@ -1,0 +1,19 @@
+<br>
+<br>
+<div>
+	<h1>新規投稿</h1>
+<!-- form_for部分 -->
+<%= form_for(@topix, url: '/users/topics') do |f| %>
+ 
+    <h4>タイトル</h4>
+    <%= f.text_field :title %>
+ 
+    <h4>本文</h4>
+    <%= f.text_area :body %>
+    <h4>画像登録</h4>
+    <%=f.attachment_field :post_image %>
+ 
+    <%= f.submit '投稿' %>
+ 
+</div>
+<% end %>

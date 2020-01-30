@@ -1,15 +1,81 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fashions</title>
+    <div class="header"></div>
+    <div id="navArea">
+      <nav>
+        <div class="inner">
+          <ul>
+            <% if user_signed_in? %>
+            <ul>
+              <li>
+                <%=link_to " t o p p a g e ",products_path,class: "glyphicon glyphicon-flag" %>
+              </li>
+              <li>
+                <%=link_to " m y p a g e ",user_favorites_path(current_user) ,class: "glyphicon glyphicon-user" %>
+                  
+              </li>
+              <li>
+                <%=link_to" fashion board ",user_topic_path ,class: "glyphicon glyphicon-heart-empty" %>
+              </li>
+              <li>
+                <%=link_to" l g o u t ",destroy_user_session_path,method: :delete,class: "glyphicon glyphicon-new-window" %>
+              </li>
+            </ul>
+            <% elsif admin_signed_in? %>
+            <ul>
+              <li>
+                <%=link_to " l o g o u  t  ",destroy_admin_session_path,method: :delete,class: "glyphicon glyphicon-heart-empty" %>
+              </li>
+              <li>
+                <%=link_to" u s e r l i s t " ,admin_managers_path,class: "glyphicon glyphicon-user" %>
+              </li>
+              <li>
+                <%=link_to" n e w c o o r d e " ,new_admin_manager_product_path,class: "glyphicon glyphicon-lock" %>
+              </li>
+              <% else %>
+              <li>
+                <%= link_to" s i g n u p ",new_user_registration_path,class: "glyphicon glyphicon-thumbs-up" %>
+              </li>
+              <li>
+                <%= link_to" l o g i n ",new_user_session_path,class: "glyphicon glyphicon-user" %>
+          <% end%>
+        </ul>
+    </div>
+  </nav>
+
+  <div class="toggle_btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div id="mask">
+  </div>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <body>
+      <%= yield %>
+    </body>
   </head>
+  <footer>
+  <div id="button">About</div>
+  <div id="container">
+  <div id="cont">
+    <div class="copyright">
+      <p>© 2020 - Organisation</p>
+    </div>
+    <div class="sns">
+      <h4>
+        あなたのクローゼット
+      </h4>
+      "天気予報とファッションをつなぐアプリ"
+      <h7>Made with<div class="glyphicon glyphicon-heart"></div> & <div class="glyphicon glyphicon-thumbs-up"> in DMM WEB CAMP ,Japan.</h6>
+  </footer>
 
-  <body>
-    <%= yield %>
-  </body>
+    </div>
+  </div>
+  </div>
+</footer>
 </html>
