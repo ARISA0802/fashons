@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-	skip_before_action :require_admin_login, raise: false
 	before_action :correct_user, only: [:edit,:update,:show,:destroy]
 	def show
 		
