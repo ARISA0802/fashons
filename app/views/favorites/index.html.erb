@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8">
-		<h2><%= current_user.name %>さんのお気に入り</h2>
+		<h2  class="mypage"><%= current_user.name %>さんのお気に入り</h2>
 			<% @favorites.each do |favorite| %>
 					<td><%= attachment_image_tag favorite.rain, :rain_image, :size =>'300x400' %>
 					<td><%= attachment_image_tag favorite.rain, :sunny_image, :size =>'300x400' %>

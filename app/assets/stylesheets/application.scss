@@ -317,3 +317,73 @@ footer .sns .tw {
   width: 100px;
   height: 100px;
 }
+.kakomi-te1 {
+ margin: 2em auto;
+ padding: 1em;
+ width: 90%;
+ color: #666666; /*文字色*/
+ border: 2px solid #996633; /*線の太さ・色*/
+ background-color: #fff; /*背景色*/
+ box-shadow: -2px 5px 5px #e8d3c7; /*影*/
+ border-radius: 20px; /*角の丸み*/
+}
+.redcolor{
+  color: #ff69b4;
+}
+.roginimage{
+  margin-top: 1px;
+  width: 800%;
+  height: 300px;
+  background-image: url(img4/login.jpg);
+}
+.head_test {
+    margin:  0;                 /* デフォルトCSS打ち消し */
+    font-size:  40px;           /* 文字サイズ指定 */
+    position:  relative;        /* 位置調整 */
+    font-weight:  normal;       /* 文字の太さ調整 */
+    display:  inline-block;     /* インラインブロックにする */
+    padding-top: 50px;          /* 余白指定 */
+    padding-left: 50px;         /* 余白指定 */
+    padding-bottom: 20px;       /* 余白指定 */
+    font-family: "Georgia";
+
+}
+.head_test:before {
+    content:  '';               /* 空白の要素を作る */
+    background-color: #ff69b4;  /* 背景色指定 */
+    display:  block;            /* ブロック要素にする */
+    position:  absolute;        /* 位置調整 */
+    left:  0;                   /* 位置調整 */
+    height: 90px;               /* 高さ指定 */
+    width: 90px;                /* 幅指定 */
+    border-radius:  50%;        /* 丸くする */
+    top: 0;                     /* 位置調整 */
+    z-index:  -1;               /* 重なり調整 */
+}
+.field{
+  background-color: #ffc0cb;
+  outline: none; 
+}
+.btn-square-toy {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  background: #00BCD4;/*背景色*/
+  color: #00BCD4;/*=背景色*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2);
+  border-bottom: solid 2px #118e9e;
+  border-radius: 4px;
+  font-weight: bold;
+  text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
+}
+
+.btn-square-toy:active {
+  /*押したとき*/
+  border-bottom: solid 2px #00BCD4;
+  box-shadow: none;
+  text-shadow: -1px -1px rgba(255, 255, 255, 0.3), 1px 1px rgba(0, 0, 0, 0.3);
+}
+.moji{
+  font-family: cursive;
+}

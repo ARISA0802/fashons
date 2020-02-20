@@ -1,22 +1,21 @@
 class Users::TopicsController < ApplicationController
-
+	
 	def new
-		@topix = Topix.new
+		@topix = Topix.new 
 	end
 	def create
-		@topixes = Topix.all
 		@topix = Topix.new(topix_params)
-		if @topix.save
-			redirect_to user_topic_path
+		if  @topix.save
+			redirect_to user_topic_path(@topix.id)
 		else
-			render 'topics/index'
+			render 'users/topics/new'
 		end
 	end
 	def index
-		@topixes = Topix.page(params[:page]).reverse_order
+		@topixes = Topix.all	
 	end
 	def show
-		@topix = Topix.find(params[:topix_id])
+		@topix = Topix.find(params[:id])
 	end
 
 	def edit
@@ -31,7 +30,7 @@ class Users::TopicsController < ApplicationController
 		end
 	end
 	def destroy
-		@opix = Topix.find(params[:id])
+		@topix = Topix.find(params[:id])
 			@topix.destroy
 			redirect_to user_topic_path
 	end
@@ -39,7 +38,7 @@ class Users::TopicsController < ApplicationController
 	private
 	
 	def topix_params
-		params.require(:topix).permit(:post_image)
+		params.require(:topix).permit(:post_image,:title,:body)
 	end
 
 end

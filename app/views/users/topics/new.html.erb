@@ -1,19 +1,20 @@
 <br>
 <br>
-<div>
-	<h1>新規投稿</h1>
+<div class="container">
+	<h1 class="topictitle">LETS!FASHION TALK</h1>
+		<hr>
 <!-- form_for部分 -->
-<%= form_for(@topix, url: '/users/topics') do |f| %>
+	<%= form_for(@topix, url: '/user/topic', method: :post) do |f| %>
  
-    <h4>タイトル</h4>
+    <h4 class="topic">T I T L E</h4>
     <%= f.text_field :title %>
  
-    <h4>本文</h4>
+    <h4 class="topic">C M M E N T</h4>
     <%= f.text_area :body %>
-    <h4>画像登録</h4>
+
+    <h4 class="topic">I M A G E</h4>
     <%=f.attachment_field :post_image %>
- 
-    <%= f.submit '投稿' %>
- 
+    <br>
+    <%= f.submit 'P U S H' , class: "btn-square" %>
+    <% end %>
 </div>
-<% end %>
