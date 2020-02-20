@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   	post 'admin/managers' => "admin/managers#create"
 	root 'products#index'
 	get "top" => "tops#top"
+	post 'user/topic'=> 'users/topics#create'
 	get 'user/topic'=> 'users/topics#index'
 	post "topics/comment" => "topics#comment"
   devise_for :users, :controllers => {

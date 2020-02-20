@@ -1,10 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-    <p>
-      <%= current_user.name %>さんの住む
-    </p>
-      <%= current_user.address %>の本日のお天気
+    <div class="col-md-4">
+      <div class="kakomi-te1">
+        <h4 class="redcolor">
+          <%= current_user.name %>さんようこそ！！
+        </h4>
+            <p>
+              <h5>
+            今日のファッションを楽しみましょう！！！
+            </p>
+              </h5>
+      </div>
         <div class="icon" >
           <div class="weatherMain"> 
             <div>
@@ -21,7 +27,7 @@
       <script>
       $(function() {
         var API_KEY = 'c965525d0b43d446a807664d5ac8d853'
-        var city = 'Tokyo';
+        var city = 'Osaka';
         var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + API_KEY;
       $.ajax({
         url: url,
@@ -66,7 +72,7 @@
           <% if @rains.present? %>
           <% @rains.each do |rain| %>
             <li>
-              <%= attachment_image_tag rain, :rain_image, :size =>'200x300' %>
+              <%= attachment_image_tag rain, :rain_image, :size =>'100x200' %>
               <%= link_to rain.name ,product_path(rain.id) %>
             </li>
               <% end %>
@@ -80,13 +86,14 @@
             <% @rains.each do |rain| %>
             <li>
               <%= link_to rain.sunnyname ,product_path(rain.id) %>
-              <%= attachment_image_tag rain, :sunny_image, :size =>'200x300' %>
+              <%= attachment_image_tag rain, :sunny_image, :size =>'100x200' %>
             </li>
           <% end %>
           <% end %>
           </ul>
         </div>
-    </div>
+      </div>
     <br>
     <br>
+  </div>
 </div>

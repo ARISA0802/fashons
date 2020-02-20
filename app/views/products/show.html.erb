@@ -1,39 +1,61 @@
 <div class="container">
   <div class="row">
   	<h1>コーディネート詳細</h1>
-  	  	<div class="col-md-6">
-		<%= attachment_image_tag @rain, :rain_image, :size =>'400x500' %>
-    <%= attachment_image_tag @rain, :sunny_image, :size =>'400x500' %>
-
-
-<% if @rain.favorited_by?(current_user) %>
-  <li>
-    <%= link_to product_favorites_path(@rain), method: :delete do %>
-      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-      <%= @rain.favorites.count %> いいね
+  	  <div class="col-md-6">
+		    <%= attachment_image_tag @rain, :rain_image, :size =>'400x500' %>
+        <%= attachment_image_tag @rain, :sunny_image, :size =>'400x500' %>
+    <% if @rain.favorited_by?(current_user) %>
+      <li>
+        <%= link_to product_favorites_path(@rain), method: :delete do %>
+        <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+        <%= @rain.favorites.count %> いいね
     <% end %>
-  </li>
-<% else %>
-  <li>
-    <%= link_to product_favorites_path(@rain), method: :post do %>
+      </li>
+    <% else %>
+    <li>
+      <%= link_to product_favorites_path(@rain), method: :post do %>
       <i class="fa fa-heart-o" aria-hidden="true"></i>
       <%= @rain.favorites.count %> いいね
     <% end %>
-  </li>
-<% end %>
-
-
-
+    </li>
+  <% end %>
 			</div>
-	<div class="col-md-6">
-		<h2 class="font"><%= @rain.name %></h2>
-		<h2 class="font"><%= @rain.sunnyname %></h2>
-			<div class="kakomi">
-				<%= @rain.introduction %>
-				<%= @rain.sunnyintroduction %>
-			</div>
-
-
+	     <div class="col-md-6">
+		      <h2 class="font"><%= @rain.name %></h2>
+		      <h2 class="font"><%= @rain.sunnyname %></h2>
+          <br>
+          <br>
+          <h2>コーデの一言</h2>
+			     <div class="kakomi">
+				    <%= @rain.introduction %>
+				    <%= @rain.sunnyintroduction %>
+			     </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-10">
+    <h2>アクセスの多いコーディネート</h2>
+        晴れのひのコーディネート
+        <ul class="bxslider">
+          <% @all_ranks.each do |rain| %>
+            <li>
+              <%= attachment_image_tag rain, :rain_image, :size =>'200x300' %>
+              <%= link_to rain.name ,product_path(rain.id) %>
+            </li>
+          <% end %>
+        </ul>
+          雨のひのコーディネート
+          <ul class="bxslider">
+            <% @all_ranks.each do |rain| %>
+              <li>
+                <%= link_to rain.sunnyname ,product_path(rain.id) %>
+                <%= attachment_image_tag rain, :sunny_image, :size =>'200x300' %>
+              </li>
+            <% end %>
+          </ul>
+    </div>
+  </div>
 	</div>
   </div>
 </div>

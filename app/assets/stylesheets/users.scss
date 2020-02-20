@@ -2,15 +2,50 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .box2 {
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    font-weight: bold;
-    color: #6091d3;/*文字色*/
-    background: #FFF;
-    border: solid 3px #6091d3;/*線*/
-    border-radius: 10px;/*角の丸み*/
+    padding: 0.5em 4em;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding-bottom: 20px;
+    background-color: #d3d3d3;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.4);
 }
 .box2 p {
     margin: 0; 
-    padding: 0;
+    padding: 20px;
+}
+.title{
+    font-size: 20px;
+    font-weight:bold;
+}
+.topictitle{
+    font-family: "Georgia";
+    font-size: 60px;
+}
+.topic{
+    font-family: "cursive";
+}
+.btn-square {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+
+  background: red;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+.btn-square:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+  background: #668ad8;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #668ad8;
+  border: dashed 1px #FFF;
+
+}
+
+.btn-stitch:hover {
+  border: dotted 1px #FFF;
 }

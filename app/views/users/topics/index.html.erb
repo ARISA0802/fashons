@@ -2,15 +2,18 @@
 	<div class="container">
 			<h1>Fashion Board</h1>
 				<%=link_to "new",new_users_topic_path %>
-    				<% @topixes.each do |f| %>
-    					<div class="box2">
-    					<br><%= attachment_image_tag f, :post_image, :size =>'100x200' %>
-    					<%= f.title %>
-   						<%= f.body %>
-					</div>
-
+				<div class="box2">
+    					<% @topixes.each do |topix| %>
+    					<div class="title">
+    					<%= topix.title %>
+    					</div>
+   						<%= topix.body %>
+   						<br>
+   						<%= link_to "show",users_topic_path(topix.id) %>
+   						<%= link_to "destroy",users_topic_path(topix.id),method: :delete,"data-confirm" => "Are you sure？"  %>
+					<br>
+					<br>
 					<% end %>
-			</div>
-		</div>
+				</div>
 	</div>
 </div>

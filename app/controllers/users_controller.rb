@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	before_action :correct_user, only: [:edit,:update,:show,:destroy]
+
+	skip_before_action :require_admin_login, raise: false
 	def show
 		
 		@user = User.find(params[:id])
@@ -31,12 +32,6 @@ class UsersController < ApplicationController
 	end
 	def topix_params
 		params.require(:topix).permit(:title,:body)
-	end
-	def correct_user
-		user=User.find(params[:id])
-		if current_user!=user
-			redirect_to user_path(current_user)
-		end
 	end
 
 end
