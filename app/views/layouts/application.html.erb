@@ -19,7 +19,7 @@
                 <%=link_to" fashion board ",users_topics_path ,class: "glyphicon glyphicon-heart-empty" %>
               </li>
               <li>
-                <%=link_to" l g o u t ",destroy_user_session_path,method: :delete,class: "glyphicon glyphicon-new-window" %>
+                <%=link_to" l o g o u t ",destroy_user_session_path,method: :delete,class: "glyphicon glyphicon-new-window" %>
               </li>
             </ul>
             <% elsif admin_signed_in? %>
@@ -32,6 +32,9 @@
               </li>
               <li>
                 <%=link_to" n e w c o o r d e " ,new_admin_manager_product_path,class: "glyphicon glyphicon-lock" %>
+              </li>
+              <li>
+                <%=link_to" l i s t ",admin_manager_products_path,class: "glyphicon glyphicon-shopping-cart" %>
               </li>
               <% else %>
               <li>

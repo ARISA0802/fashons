@@ -12,7 +12,6 @@ class Admin::ManagerProductsController < ApplicationController
 	def create
 		@rain = Rain.new(rain_params)
 		if @rain.save
-			flash[:notice] = "保存しました！"
 			redirect_to admin_manager_products_path
 		else
 			render :new

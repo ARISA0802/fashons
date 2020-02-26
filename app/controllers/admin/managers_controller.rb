@@ -8,9 +8,9 @@ class Admin::ManagersController < ApplicationController
 	def edit
 		@user = User.find(params[:id])
 	end
-	def update
+	def update 
 		@user = User.find(params[:id])
-		if @user.update(user_params)
+		if @user.update(update_user_params)
 			redirect_to admin_managers_path
 		else
 			render :edit

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   	post 'admin/managers' => "admin/managers#create"
 	root to: 'tops#top'
+	get 'users/topics/new'
 	post 'users/topics'=>'users/topics#create'
 	get 'users/topics'=> 'users/topics#index'
-	post "topics/comment" => "topics#comment"
 	patch'admin/managers' =>'admin/managers#update'
   devise_for :users, :controllers => {
   	:sessions => "users/sessions",

@@ -1,6 +1,6 @@
 <div class="container">
 	<h1>会員登録ユーザー編集</h1>
-	<%= form_for(@user, url:"/admin/managers") do |f| %>
+	<%= form_for(@user, url:"/admin/managers/#{@user.id}") do |f| %> 
     <h4>User NAME</h4>
     <%= f.text_field :name %>
     <h4>Email</h4>
