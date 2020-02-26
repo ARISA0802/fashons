@@ -3,7 +3,6 @@
       <div class="log-in">
         <h2 class="log-in-heading">
         Log in</h2>
-
 <%= form_for(resource, as: resource_name, url:new_admin_session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :メールアドレス %><br />
@@ -23,7 +22,7 @@
   <% end %>
 
   <div class="log-in-actions">
-    <%= f.submit "Log in",class: "btn btn-info" %>
+    <%= f.submit "Log in" %>
   </div>
 <% end %>
 
