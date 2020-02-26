@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   	post 'admin/managers' => "admin/managers#create"
-	root 'products#index'
-	get "top" => "tops#top"
-	post 'user/topic'=> 'users/topics#create'
-	get 'user/topic'=> 'users/topics#index'
+	root to: 'tops#top'
+	post 'users/topics'=>'users/topics#create'
+	get 'users/topics'=> 'users/topics#index'
 	post "topics/comment" => "topics#comment"
+	patch'admin/managers' =>'admin/managers#update'
   devise_for :users, :controllers => {
   	:sessions => "users/sessions",
   	:passwords =>"users/passwords",
@@ -25,7 +25,7 @@ resources :users,only: [:show,:edit,:update,:index,:destroy]do
 	resources :favorites,only: [:index]
 end
 namespace :users do
-	resources :topics,only: [:show,:edit,:update,:destroy,:create,:new]
+	resources :topics,only: [:show,:edit,:update,:destroy,:create,:new,:index]
 end
 resources :images, only: [:new, :create, :index, :show] do
 	resource :favorites, only: [:index]

@@ -19,7 +19,7 @@ class Admin::ManagersController < ApplicationController
 	def destroy
 		@user = User.find(params[:id])
 		@user.destroy
-		redirect_to  admin_managers_path
+		redirect_to admin_managers_path
 	end
 	def create
 	end

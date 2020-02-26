@@ -1,7 +1,7 @@
 class Admin::ManagerProductsController < ApplicationController
 	skip_before_action :method_name, raise: false
 	def new
-		@rain = Rain.new
+		@rain = Rain.new 
 	end
 	def index 
 		@rains = Rain.all

@@ -7,15 +7,15 @@
     <% if @rain.favorited_by?(current_user) %>
       <li>
         <%= link_to product_favorites_path(@rain), method: :delete do %>
-        <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-        <%= @rain.favorites.count %> いいね
+        <i class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></i>
+        <%= @rain.favorites.count %>
     <% end %>
       </li>
     <% else %>
     <li>
       <%= link_to product_favorites_path(@rain), method: :post do %>
-      <i class="fa fa-heart-o" aria-hidden="true"></i>
-      <%= @rain.favorites.count %> いいね
+      <i class="glyphicon glyphicon-heart-empty" aria-hidden="true" style="color: black;"></i>
+      <%= @rain.favorites.count %> 
     <% end %>
     </li>
   <% end %>

@@ -311,8 +311,9 @@ footer .sns .tw {
   color: #FFD700;
 }
 .headerimage{
-  background-image: url(img4/image5.jpg);
+  background-image: image-url('img4/image5.jpg');
 }
+
 .board{
   width: 100px;
   height: 100px;

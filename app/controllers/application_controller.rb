@@ -4,18 +4,18 @@ class ApplicationController < ActionController::Base
 
 
 	def after_sign_up_path_for(resource)
-		root_path
+		products_path
 	end
 	def after_sign_in_path_for(resource)
   		if user_signed_in?
-  			root_path
+  			products_path
   		else
   			admin_manager_products_path
   		end
 	end
 
 	def after_sign_out_path_for(resource)
-  		top_path
+  		root_path
 	end
 	
 	def require_login
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
 	def require_admin_login
 		unless curent_admin
-			redirect_to root_path
+			redirect_to products_path
 		end
 	end
 
@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 	
 	def require_user_alredy
 		if current_user
-			redirect_to root_path
+			redirect_to products_path
 		end
 	end
 
