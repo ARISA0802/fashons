@@ -1,10 +1,9 @@
-<br>
-<br>
+
 <div class="container">
 	<h1 class="topictitle">LETS!FASHION TALK</h1>
 		<hr>
 <!-- form_for部分 -->
-	<%= form_for(@topix, url: '/user/topic', method: :post) do |f| %>
+	<%= form_for(@topix, url: '/users/topics/') do |f| %>
  
     <h4 class="topic">T I T L E</h4>
     <%= f.text_field :title %>

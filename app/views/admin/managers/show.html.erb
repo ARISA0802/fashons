@@ -1,1 +1,9 @@
-<h1>会員登録ユーザー詳細</h1>
+<div class="container">
+<h2><%= @user.name %>様</h2>
+<h3>メールアドレス</h3>
+	<%= @user.email %>
+<h3>住所</h3>
+	<%= @user.address %>
+	<%= link_to "編集" ,edit_admin_manager_path(@user.id) %>
+</div>
+
