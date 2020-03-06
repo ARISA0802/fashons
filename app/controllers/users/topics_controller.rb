@@ -31,13 +31,13 @@ class Users::TopicsController < ApplicationController
 	def destroy
 		@topix = Topix.find(params[:id])
 		@topix.destroy
-		redirect_to user_topic_path
+		redirect_to users_topics_path
 	end
 	
 	private
 	
 	def topix_params
-		params.require(:topix).permit(:title,:body)
+		params.require(:topix).permit(:title,:body,:post_image)
 	end
 
 end

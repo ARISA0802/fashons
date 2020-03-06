@@ -11,8 +11,10 @@ class Admin::ManagerProductsController < ApplicationController
 	end
 	def create
 		@rain = Rain.new(rain_params)
+		@rain.user_id = current_admin.id
 		if @rain.save
-			redirect_to admin_manager_products_path
+			flash[:notice] = "You have created FASHON successfully."
+		redirect_to admin_manager_products_path(@rain.id)
 		else
 			render :new
 		end

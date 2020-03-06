@@ -1,20 +1,22 @@
 <div class="headerimage">
 	<div class="container">
 			<h1>Fashion Board</h1>
-				<%=link_to "new",new_users_topic_path %>
-						<% if @topixes.present? %>
-    					<% @topixes.each do |topix| %>
-    					<div class="title">
-    					<%= topix.title %>
-    					</div>
-   						<%= topix.body %>
-   						<br>
-   						<%= link_to "show",users_topic_path(topix.id) %>
-   						<%= link_to "destroy",users_topic_path(topix.id),method: :delete,"data-confirm" => "Are you sure？"  %>
-					<br>
-					<br>
+				<%=link_to "new",new_users_topic_path,class: "btn-circle-flat" %>
+				<br>
+				<div class="col-md-8">
+    				<% @topixes.each do |topix| %>
+    					<div class="topicsbox">
+    						<div class="title">
+    							<%=  link_to topix.title ,users_topic_path(topix.id) %>
+    						</div>
+   								<%= topix.body %>
+   								<%= attachment_image_tag topix, :post_image, :size =>'100x200' %>
+   								<br>
+								<br>
+								<br>
+						</div>
 					<% end %>
-					<% end %>
+				</div>
 				
 	</div>
 </div>

@@ -1,3 +1,41 @@
 // Place all the styles related to the users/topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.topicsbox {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: #ffffff;
+    border-radius: 10px;
+    border: solid 1px #000000;
+}
+.topicsbox p {
+    margin: 0; 
+    padding: 0;
+}
+.title{
+    font-size: 20px;
+    font-weight:bold;
+    text-align:center;
+    margin-top: 10px;
+}
+.btn-circle-flat {
+  display: inline-block;
+  text-decoration: none;
+  background: #fd87ae;
+  color: #FFF;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+}
+
+.btn-circle-flat:hover {
+  background: #668ad8;
+}
+h1 {
+    background: linear-gradient(transparent 70%, #a7d6ff 70%);
+}
